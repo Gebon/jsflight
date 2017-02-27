@@ -25,11 +25,14 @@
         <Logger name="com.focusit" level="info">
             <AppenderRef ref="SERVER_FILE" />
         </Logger>
-        <Logger name="org.apache.jmeter.protocol.http.proxy" level="error">
+        <Logger name="org.apache.jmeter.protocol.http.proxy" level="warn">
+            <AppenderRef ref="JMETER_FILE" />
+        </Logger>
+        <Logger name="org.focusit.jsflight.jmeter" level="warn">
             <AppenderRef ref="JMETER_FILE" />
         </Logger>
 
-        <Root level="trace">
+        <Root level="info">
             <AppenderRef ref="STDOUT"/>
         </Root>
     </Loggers>

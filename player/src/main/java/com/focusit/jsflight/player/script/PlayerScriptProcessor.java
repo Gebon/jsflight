@@ -1,14 +1,13 @@
 package com.focusit.jsflight.player.script;
 
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.annotation.Nullable;
-
+import com.focusit.jsflight.player.constants.EventConstants;
+import com.focusit.jsflight.player.scenario.UserScenario;
+import com.focusit.jsflight.script.ScriptEngine;
+import com.focusit.jsflight.script.constants.ScriptBindingConstants;
+import groovy.lang.Binding;
+import groovy.lang.GroovyClassLoader;
+import groovy.lang.Script;
+import groovy.text.GStringTemplateEngine;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -18,15 +17,13 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.focusit.jsflight.player.constants.EventConstants;
-import com.focusit.jsflight.player.scenario.UserScenario;
-import com.focusit.jsflight.script.ScriptEngine;
-import com.focusit.jsflight.script.constants.ScriptBindingConstants;
-
-import groovy.lang.Binding;
-import groovy.lang.GroovyClassLoader;
-import groovy.lang.Script;
-import groovy.text.GStringTemplateEngine;
+import javax.annotation.Nullable;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * PlayerScriptProcessor that runs groovy scripts or GString templates
@@ -85,7 +82,7 @@ public class PlayerScriptProcessor
         }
         catch (Exception ex)
         {
-            LOG.warn("Url replacement filed. Default value is the same event url");
+            LOG.warn("Url replacement failed. Default value is the same event url");
             return event.getString(EventConstants.URL);
         }
     }
